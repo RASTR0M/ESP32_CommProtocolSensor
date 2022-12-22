@@ -82,9 +82,8 @@ Keluaran
 **Kondisi apabila Tag RFID didekatkan pada Reader, maka LED Hijau akan menyala, servo akan bergerak ke kanan (lalu kembali ke posisi semula setelah 3 detik) dan di Serial Monitor akan tertampil pesan “Akses Diterima, Silahkan Masuk”. Apabila Tag RFID tidak dikenali, maka LED Merah akan menyala, servo tidak bergerak dan di Serial Monitor akan tertampil pesan “Akses Ditolak”**
 
 Keluaran <br />
-https://user-images.githubusercontent.com/118364435/206265690-06520ebf-56c9-4a08-931a-dd90f42cf8b7.mp4
 
-
+https://user-images.githubusercontent.com/46047013/209168094-bd5ec0df-b854-40d7-8248-fd0023746041.mp4
 
 
 
