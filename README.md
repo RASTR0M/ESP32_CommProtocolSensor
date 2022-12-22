@@ -83,7 +83,6 @@ Keluaran
 
 Keluaran <br />
 
-https://user-images.githubusercontent.com/46047013/209168094-bd5ec0df-b854-40d7-8248-fd0023746041.mp4
-
+https://user-images.githubusercontent.com/46047013/209169376-0c2d195e-e854-4d87-b8b9-f09caf136330.mp4
 
 
