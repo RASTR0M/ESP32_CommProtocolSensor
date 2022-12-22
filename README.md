@@ -1,4 +1,4 @@
-# Protokol-Komunikasi-dan-Sensor
+﻿# ESP32_CommProtocolSensor
 
 ESP32 adalah nama dari mikrokontroler yang dirancang oleh perusahaan yang berbasis di Shanghai, China yakni Espressif Systems. ESP32 menawarkan solusi jaringan WiFi dan BLE. ESP32 menggunakan prosesor dual core yang berjalan di instruksi Xtensa LX16. Selain itu, ESP32 telah mendukung protokol komunikasi seperti I2C, UART dan SPI.
 
@@ -15,66 +15,76 @@ ESP32 adalah nama dari mikrokontroler yang dirancang oleh perusahaan yang berbas
 
 **1) ESP32 Capacitive Touch Sensor**
 
-**Raw Data**
-
-Keluaran Serial Monitor
-![ESP32 capacitive touch sensor (serial monitor)](https://user-images.githubusercontent.com/118364435/206261314-8de300af-fe98-4e43-bf56-384c46bd8b1d.jpeg)
-
-Keluaran Serial Plotter
-![ESP32 capacitive touch sensor (serial plotter)](https://user-images.githubusercontent.com/118364435/206261668-a6dbc3b5-83bd-4f4f-9a5f-58a3c701b6a7.jpeg)
-
-Keluaran Serial Plotter (disentuh)
-![ESP32 capacitive touch sensor (serial plotter) disentuh](https://user-images.githubusercontent.com/118364435/206261734-b1ba2eef-1255-4720-9054-9243f330ed98.jpeg)
-
-Analisa : Pada percobaan ini diambil data (Raw Data) dari serial monitor dan plotter dari rangkaian dan script yang dijalankan. Percobaan ini digunakan touch sensor. Jadi apabila kabel jumper yang terhubung ke pin touch sensor disentuh, maka pada serial monitor dapat dilihat nilai yang keluar akan semakin bertambah dan pada serial plotter pun grafik/sinyal akan berada pada ambang atas. Sedangkan jika kabel jumper touch sensor tidak disentuh, maka nilai akan semakin berkurang dan grafik/sinyal menunjukkan pada ambang bawah.
-
-**Kemudian Buat Rangkaian Seperti di Bawah**
-
-![Rangkaian 1 Capacitive Touch Sensor](https://user-images.githubusercontent.com/118364435/206262185-fbc98031-c34f-4397-90c3-f707922a080b.PNG)
-
-Keluaran
+**Contoh**
 
 
-https://user-images.githubusercontent.com/118364435/206262784-1ab1bc88-945a-49e4-8298-62cbb7e5c8fe.mp4
+https://user-images.githubusercontent.com/41616849/209112987-79b2e3e8-2d4d-4be9-9859-ab05ffb474a3.mp4
 
+Analisa : <br />
+Dari contoh daiatas ESP32 dapat digunakan sebagai Touch Sensor dimana saat kabel jumper disentuh maka akan menghasilkan data pada serial plotter seperti pada video diatas. Ketika sensor(kabel) tidak disentuh nilai pada serial plotter akan tinggi sedangkan saat sensor(kabel) disentuh maka serial plotter akan rendah
 
-Analisa :Pada percobaan ini ditambahkan 1 LED. Pada keluaran didapatkan, apabila jumper touch sensor disentuh, maka LED akan menyala, dan LED akan mati jika jumper tidak disentuh. 
+**Kemudian Buatlah Rangkaian dibawah ini** <br />
+![image](https://user-images.githubusercontent.com/41616849/209115047-caf5c1ad-eff1-460f-a123-e68a182a7acd.png)  <br />
 
-**Kemudian Tambahkan Rangkaian Menjadi 3 LED Agar Menyala Running**
-
-Keluaran
-
-
-https://user-images.githubusercontent.com/118364435/206263362-e9436e50-1487-43fd-ab4b-e49a66f0d020.mp4
+**Keluaran** <br />
+a) Lampu LED On saat disentuh dan Off saat tidak disentuh <br />
 
 
 
-**2) Mengakses Sensor DHT 11 (Single Wire/BUS)**
+https://user-images.githubusercontent.com/41616849/209116914-23ed1904-4a93-4208-83cf-e4585ddd020b.mp4  
 
-**Mengakses Sensor DHT 11**
+Analisa : <br />
+Dari data contoh diatas kita dapat implementasikan nilai serial plotter untuk menghidupkan dan menyalkan lampu LED dengan perintah if else pada program yang menghasilkan LED akan menyala ketika sensor disentuh dan akan mati ketika sensor tidak disentuh. <br />
+
+b) Lampu LED akan menyala Blink saat disentuh <br />
+
+https://user-images.githubusercontent.com/41616849/209118112-209c4f1b-6ab5-4fd4-a3d7-191cad0f9403.mp4
+
+Analisa : <br />
+Untuk percobaan kali ini masih mengimplementasikan hasil serial plotter hanya saja pada programnya dapat diatur seingga ketika sensor disentuh maka LED akan menyala BLINK dan mati ketika sensor tidak disentuh. <br />
+
+c) Ketika LED menyala Serial Monitor akan menampilkan angka yang bertambah tiap kali sensor disntuh <br />
+
+https://user-images.githubusercontent.com/41616849/209118853-09e14b7a-6ba7-4bcd-b8e3-85f5d5f1969e.mp4
+
+Analisa : <br />
+Percobaan kali ini menghasilkan data ketika sensor disentuh maka akan mengirimkan data untuk menambahkan angka yang akan tampil pada serial monitor. <br />
+
+d) Lampu LED akan menyala Running saat sensor disentuh <br />
+
+https://user-images.githubusercontent.com/41616849/209119462-2cac19fa-6147-4143-8977-80bca4ee5a50.mp4
+
+Analisa : <br />
+Pada percobaan ini program diubah sehingga ketika sensor disentuh maka LED akan menyala running dari kiri ke kanan, kemudian kanan ke kiri secara kontinyue <br />
+
+**2) DHT 11 Sensor** <br />
+Pada Percobaan kali ini digunakan sensor suhu dan kelembapan DHT 11 yang dapat menghasilkan data sehingga dapat disimpan pada ESP32. Untuk rangkaiannya seperti ini <br />
+![image](https://user-images.githubusercontent.com/41616849/209120548-e0bac69c-7d9b-4002-87f5-0a7e16526ae0.png) <br />
+rangkaian diatas kemudian ditambah buzzer yang akan menyala saat sensor membaca suhu 30 derajat celcius dan 3 buah LED yang akan menyala running saat suhu dibawah 30 derajat celcius <br />
+
+https://user-images.githubusercontent.com/41616849/209121035-1647dcfe-ee5e-407e-94fe-a8e10e025bea.mp4
+
+Analisa : <br />
+Dengan data yang didapat sensor DHT 11 kita dapat membuat program dengan untuk memberikan sebuah state pada keadaan tertentu. <br />
+
+**3) Sensor RFID**
+
+**Buatlah rangkaian seperti berikut**
+
+![image](https://user-images.githubusercontent.com/41616849/209123901-b261bf28-8be5-443a-aadf-cb393fa20e94.png)
+
 
 Keluaran 
-![Akses sensor DHT11 (1) (single wire atau BUS)](https://user-images.githubusercontent.com/118364435/206264192-1ff59998-10e4-4afa-822a-ddcc60898d74.jpeg)
 
-**Kondisi jika suhu 30 derajat, maka LED Merah menyala dan Buzzer berbunyi. Jika tidak, maka LED akan running**
+![image](https://user-images.githubusercontent.com/41616849/209123721-e27870b9-23ab-4e33-afd5-f146bd19903d.png)
 
-Keluaran 
-
-
-https://user-images.githubusercontent.com/118364435/206264868-dcb22aee-ec0c-4d10-b76e-3456c64fe5b1.mp4
-
-
-
-**3) Mengakses Sensor RFID (SPI Communication)**
-
-**Mengakses Sensor RFID**
-
-Keluaran 
-![Akses sensor RFID 1](https://user-images.githubusercontent.com/118364435/206265429-c641a849-9094-476e-98c7-f76a90b19270.jpeg)
 
 **Kondisi apabila Tag RFID didekatkan pada Reader, maka LED Hijau akan menyala, servo akan bergerak ke kanan (lalu kembali ke posisi semula setelah 3 detik) dan di Serial Monitor akan tertampil pesan “Akses Diterima, Silahkan Masuk”. Apabila Tag RFID tidak dikenali, maka LED Merah akan menyala, servo tidak bergerak dan di Serial Monitor akan tertampil pesan “Akses Ditolak”**
 
 Keluaran 
 
 
-https://user-images.githubusercontent.com/118364435/206265690-06520ebf-56c9-4a08-931a-dd90f42cf8b7.mp4
+
+
+
+
